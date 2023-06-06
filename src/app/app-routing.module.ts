@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { HomePage } from './home/home.page';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'places', pathMatch: 'full' },
   {
-    path: 'home',
+    path: 'auth',
     loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomePageModule),
+      import('./auth/auth.module').then((m) => m.AuthPageModule),
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-    component: HomePage,
+    path: 'places',
+    loadChildren: () =>
+      import('./places/places.module').then((m) => m.PlacesPageModule),
+  },
+
+  {
+    path: 'bookings',
+    loadChildren: () =>
+      import('./bookings/bookings.module').then((m) => m.BookingsPageModule),
   },
 ];
 
