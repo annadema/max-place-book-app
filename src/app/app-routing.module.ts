@@ -13,14 +13,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./places/places.module').then((m) => m.PlacesPageModule),
   },
-
   {
     path: 'bookings',
     loadChildren: () =>
       import('./bookings/bookings.module').then((m) => m.BookingsPageModule),
   },
 ];
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
